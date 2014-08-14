@@ -7,11 +7,14 @@ Before doing any visualization , I first cleaned the data and then converted it 
 Each cube has a bunch of dimensions and each element of the cube is indexed by the dimensions. Each element can contain multiple values. Possible operations on the dimensions are projection, summarization, slice and dice, drill down, roll up, and pivot. For example moving from 10 minute sample granularity to one hour can be considered a rollup in the time dimension. This resulted into a smaller data set that can be explored using in-memory programs (here Matlab). We could have, of course, exported the whole data into a multidimensional database where all possible cubes are materialized and so the queries are very fast, but we kind of did this using in-house tools. 
 ## The ETL step:
 I just use the following heuristic to clean the data. I removed every row with a null value. If a latitude or longitude is null the sensor number cannot be retrieved at all. So it’s logical to discard it. Note that the data did not contain a sensor number and I generated it based on identical geographical locations. The following is a Matlab code that does this (it’s actually interesting to see how hard it is to do this using a query language):
+```matlab
 M = csvread('temp1.csv'); 
 M=M(~any(isnan(M),2),:);
 changes=[0 ; M(2:end,3)~=M(1:end-1,3)];
 sn=sum(changes)+1; 
 sensor=cumsum(changes)+1;
+```
+
 now if the latitude and longitude are not missing in a row but instead one of the values of occupancy, volume or speed are missing, again I decided to get rid of the row. This is because I didn’t want to give one variable an advantage of having more values. 
 Now the problem is if the data set is a multidimensional array, what happens to the elements that are empty. I initialized the whole array with nan.
 volume_=zeros([7 24 sn]);
