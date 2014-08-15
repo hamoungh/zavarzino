@@ -1,5 +1,6 @@
-zavarzino: TRANSPORTATION ANAYLITICS CASE STUDY
+zavarzino
 =========
+zavarzino is some code we developed for a transportation analytics case study in one of our papers. 
 For illustrating one of the common analytics that is usual in transportation systems, we tried to visualize weekly pattern of traffic data.  Depending on the day of the week, the transportation demand will vary from location to location and time period to time period. We visualize the speed for each day of the week for the entire data set. Instead of analyzing measurements of a particular location in the GTA, we analyze all loop detector sensor readings to treat GTA as one unit. This represents an average travel behavior over the complete highway network [1].
 Scope of the visualization: We only have highway traffic data for GTA for three months, namely May, June and July 2013. Therefore, the scope of the reports is limited to three months and to GTA. This approximates to 365million (365,215,882) samples in the highway table. 
 
