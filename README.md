@@ -62,6 +62,8 @@ this graphs focus on individual sensors. Basically they show that there are two 
  
 ### The animation
 the animation is actually a scatterplot where each circle represents a sensor and the location of the circle is obtained from the location of the sensor. A nonlinear function is used to map the occupancy and speed tupple associated with each  sensor at each time to a triple that represents the RGB color. 
-  ![alt text](https://raw.githubusercontent.com/hamoungh/zavarzino/master/diagram/Tuesday-6 PM.png "Logo Title Text 1")
- 
+[Animation link](https://raw.githubusercontent.com/hamoungh/zavarzino/master/diagram/seven-day.wmv)
+
+  ![alt text](https://raw.githubusercontent.com/hamoungh/zavarzino/master/diagram/Tuesday-6%20PM.png "Logo Title Text 1")
+
  
