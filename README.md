@@ -28,38 +28,40 @@ I mainly performed four types of visualizations. I will describe each separately
 I first assumed that there may similarities between a transportation network and a queuing network. 
 
 ### The scatterplots
-In a queuing network the main measures of interest are the utilization of each queuing center(U_k), the delay it center introduces for the customers (R_k), and the number of customers waiting or getting a service in each queue (N_k). 
-Let’s assume the volume in our data set is a number of customers N, the occupancy is the utilization U, and the speed is a measure of how high th delay is i.e. R. 
-as a result the relationship between the number of customers and the occupancy has to be proportional up to a point that the center is saturated and the occupancy cannot go higher than a threshold. In other words if the utilization of the queuing center does not proportionally increased with additional users than the center is a bottleneck. In the third graph below however the reverse happens. The volume stops increasing   while the occupancy increases. I do not know how to interpret that. Maybe should talk to a traffic engineer. But I guess it means that the center’s occupant because somewhere else is the bottleneck (i.e. the center itself does not have a lot of volume but maybe to one next to it has). 
+In a queuing network the main measures of interest are the utilization of each queuing center(Uk), the delay it center introduces for the customers (Rk), and the number of customers waiting or getting a service in each queue (Nk). 
+
+Let’s assume the volume in our data set is throughput, the occupancy is the utilization U, and the speed is a measure of how high th delay is i.e. R. 
+As a result the relationship between the volume and the occupancy has to be proportional:
 Inline-style: 
-![alt text](https://github.com/hamoungh/zavarzino/tree/master/diagram/scatter-volume-versus-occupancy-sensor401.png "Logo Title Text 1")
+![alt text](https://raw.githubusercontent.com/hamoungh/zavarzino/master/diagram/volume-versus-occupancy-sensor1.png "Logo Title Text 1")
 
 
+Below graphs shows the speed drops as soon as the occupancy starts to increase: 
+![alt text](https://raw.githubusercontent.com/hamoungh/zavarzino/master/diagram/scatter-occupancy-versus-speed-sensor321.png "Logo Title Text 1")
    
-  
-Maybe actually the occupancy is equivalent of number of users and the volume is the utilization. (then the graphs match  the queuing networks theory).
-
-The fifth graph above is actually interesting because you see two different regression lines and correlation coefficient. I think that’s maybe because there is a change of condition in the road for example Lane has been blocked for the repair  or something like that (note that the data for this diagram has been grabbed from the whole seven day interval)   
-
-Below graphs show the relationship between occupancy and speed. What I would expect from the queuing network model is that the utilization should increase while the center’s delay will remain the same. And the way utilization hits the max the delay starts to increase. It’s a little different here in the graphs. To speed drops as soon as the occupancy starts to increase.
-   
-In the third graph above,  however there’s no specific relationship between the occupancy and the  speed. I think that basically means that  the region associated with this sensor should not be modeled as a queuing center. Basically it just gets affected by the other regions.
  
 ### Comparing the speed of different days (same hour) using a histogram
 the graph is self descriptive. It shows that on day five we have much less a speed overall. the distributions are over all the sensors. 
-
+![alt text](https://raw.githubusercontent.com/hamoungh/zavarzino/master/diagram/speed-histogram-different-days.png "Logo Title Text 1")
   
 ### Comparing different hours using cumulative distribution function
 multiple cumulative distribution functions of different hours of the day can be shown in the same diagram. Below, in the first diagram we see that (sorry the x axis labels are wrong) at 6 o’clock half of sensors cdf= .5, experience an speed of under 80 km. Almost 70% of sensors at this hour experience speed of lower than hundred kilometers. In other hours, almost 90% of sensors experience an speed of more than 90 km. 
+ ![alt text](https://raw.githubusercontent.com/hamoungh/zavarzino/master/diagram/cdf-speed-hour-1-17.png "Logo Title Text 1")
  
 Below graph shows that the occupancy experienced by most of the sensors is increased by about 15 to 20 at 6 o’clock. 
+  ![alt text](https://raw.githubusercontent.com/hamoungh/zavarzino/master/diagram/cdf-occupancy-hour-1-17.png "Logo Title Text 1")
+ 
  graph shows that the volume experienced by sensors at 6 o’clock is pretty much the same volume that is experienced at noon. This might be again because the network is saturated and cannot take more volume. This increase in the occupancy   while the volume hits a max again suggests that may be the volume represents some metric such as utilization and the occupancy represents the number of cars in the region. 
-
-
+ ![alt text](https://raw.githubusercontent.com/hamoungh/zavarzino/master/diagram/cdf-volume-hour-1-17.png "Logo Title Text 1")
+ 
  
 ### Graphs of individual sensors over day/time
 this graphs focus on individual sensors. Basically they show that there are two points during the day of the volume is increase and speed is dropped. 
- 
+  ![alt text](https://raw.githubusercontent.com/hamoungh/zavarzino/master/diagram/occupancy.png "Logo Title Text 1")
+  ![alt text](https://raw.githubusercontent.com/hamoungh/zavarzino/master/diagram/speed.png "Logo Title Text 1")
  
 ### The animation
 the animation is actually a scatterplot where each circle represents a sensor and the location of the circle is obtained from the location of the sensor. A nonlinear function is used to map the occupancy and speed tupple associated with each  sensor at each time to a triple that represents the RGB color. 
+  ![alt text](https://raw.githubusercontent.com/hamoungh/zavarzino/master/diagram/Tuesday-6 PM.png "Logo Title Text 1")
+ 
+ 
