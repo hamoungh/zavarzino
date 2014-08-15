@@ -17,9 +17,11 @@ sensor=cumsum(changes)+1;
 
 now if the latitude and longitude are not missing in a row but instead one of the values of occupancy, volume or speed are missing, again I decided to get rid of the row. This is because I didn’t want to give one variable an advantage of having more values. 
 Now the problem is if the data set is a multidimensional array, what happens to the elements that are empty. I initialized the whole array with nan.
+```matlab
 volume_=zeros([7 24 sn]);
 volume_(i) = M(:,volume);
 volume_=permute(volume_,[3 1 2]);
+```
 
 ## Visualizations
 I mainly performed four types of visualizations. I will describe each separately.
@@ -29,6 +31,9 @@ I first assumed that there may similarities between a transportation network and
 In a queuing network the main measures of interest are the utilization of each queuing center(U_k), the delay it center introduces for the customers (R_k), and the number of customers waiting or getting a service in each queue (N_k). 
 Let’s assume the volume in our data set is a number of customers N, the occupancy is the utilization U, and the speed is a measure of how high th delay is i.e. R. 
 as a result the relationship between the number of customers and the occupancy has to be proportional up to a point that the center is saturated and the occupancy cannot go higher than a threshold. In other words if the utilization of the queuing center does not proportionally increased with additional users than the center is a bottleneck. In the third graph below however the reverse happens. The volume stops increasing   while the occupancy increases. I do not know how to interpret that. Maybe should talk to a traffic engineer. But I guess it means that the center’s occupant because somewhere else is the bottleneck (i.e. the center itself does not have a lot of volume but maybe to one next to it has). 
+Inline-style: 
+![alt text](https://github.com/hamoungh/zavarzino/tree/master/diagram/scatter-volume-versus-occupancy-sensor401.png "Logo Title Text 1")
+
 
    
   
